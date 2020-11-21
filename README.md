@@ -1,7 +1,7 @@
 # ModbusMaster
 Standalone Windows app supporting Modbus RTU, TCP, UDP, RTUoverTCP, RTUoverUDP, ASCIIoverRTU, ASCIIoverTCP and ASCIIoverUDP protocols.
 
-Based on modified nModbus .NET 3.5 libraries, Copyright (c) 2006 Scott Alexander ( https://code.google.com/p/nmodbus/ ).
+Based on modified [nModbus](https://code.google.com/p/nmodbus/) .NET 3.5 libraries, Copyright (c) 2006 Scott Alexander.
 
 Intended to be used as a quick testing tool. Can be tested with its counterpart [ModbusSlaveSimulation](https://github.com/GitHubDragonFly/ModbusSlaveSimulation).
 
@@ -35,6 +35,4 @@ Licensed under MIT license - see the README.txt file inside the Resources folder
 Any and all trademarks, either directly or indirectly mentioned in this project, belong to their respective owners.
 
 # Useful Resources
-The forum of AdvancedHMI website, which is another open source project that has this app, its Mono version as well as its VB version:
-
-https://www.advancedhmi.com/forum/
+The AdvancedHMI website [forum](https://www.advancedhmi.com/forum/), which is another open source project that has this app, its Mono version as well as its VB version.
