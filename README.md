@@ -1,9 +1,9 @@
 # ModbusMaster
 Standalone Windows app supporting Modbus RTU, TCP, UDP, RTUoverTCP, RTUoverUDP, ASCIIoverRTU, ASCIIoverTCP and ASCIIoverUDP protocols.
 
-Intended to be used as a quick testing tool.
-
 Based on modified nModbus .NET 3.5 libraries, Copyright (c) 2006 Scott Alexander ( https://code.google.com/p/nmodbus/ ).
+
+Intended to be used as a quick testing tool. Can be tested with its counterpart [ModbusSlaveSimulation](https://github.com/GitHubDragonFly/ModbusSlaveSimulation).
 
 # Functionality
 - Read the comments inside the form and also hover the mouse over the labels for hints.
