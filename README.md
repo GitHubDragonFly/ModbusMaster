@@ -1,6 +1,8 @@
 # ModbusMaster
 Standalone Windows app supporting Modbus RTU, TCP, UDP, RTUoverTCP, RTUoverUDP, ASCIIoverRTU, ASCIIoverTCP and ASCIIoverUDP protocols.
 
+Intended to be used as a quick testing tool.
+
 Based on modified nModbus .NET 3.5 libraries, Copyright (c) 2006 Scott Alexander ( https://code.google.com/p/nmodbus/ ).
 
 # Functionality
