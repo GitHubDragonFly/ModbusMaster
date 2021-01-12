@@ -7,7 +7,7 @@ Intended to be used as a quick testing tool. Can be tested with its counterpart 
 
 # Functionality
 - Read the comments inside the form and also hover the mouse over the labels for hints.
-- Addressing: Coils = 0xxxxx, Discrete Inputs = 1xxxxx, Input Registers = 3xxxxx, Holding Registers = 4xxxxx.
+- No Offset Addressing: Coils = 0xxxxx, Discrete Inputs = 1xxxxx, Input Registers = 3xxxxx, Holding Registers = 4xxxxx (where xxxxx goes from 0 up to 65534).
 - Apart from Int16, no modifier, it also supports U, F, L, UL and S modifiers (UInt16, Float32, Int32, UInt32, String)
 - A support for 64-bit values was added - Float64, signed and unsigned Integer64. Use FQ, LQ and UQ modifiers (where "Q" stands for Quad Word).
 - An experimental support for 128-bit values was added - signed and unsigned Integer128. Use LO and UO modifiers (where "O" stands for Octa Word).
