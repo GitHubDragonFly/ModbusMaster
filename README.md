@@ -16,8 +16,8 @@ Intended to be used as a quick testing tool. Can be tested with its counterpart 
   - either a single value or the exact number of comma separated values will be required for writing if Points number > 1.
 - For RTU based protocols, on a single PC, this app can use the help of the com0com Windows program to provide virtual serial port pairs.
 - Additional TextBox allows manual input of the serial port (intended for Linux so tty0tty virtual ports could be accessed).
-- The library supports Masked Bit Write, function code 22 (0x16H), but the app also includes the built-in code for slave devices that don't support FC22.
-- Addresses do NOT have offset of +1.
+- The library supports Masked Bit Write, function code 22 (0x16H), but the app also includes the built-in code for slave devices that don't support FC22 (this entails read-modify-write which could overwrite values that changed during this process).
+- Exercise caution when attempting to write any value to the PLC.
 
 # Build
 All it takes is to:
