@@ -37,7 +37,7 @@
             this.cbStringLength = new System.Windows.Forms.ComboBox();
             this.lblModifier = new System.Windows.Forms.Label();
             this.cbModifier = new System.Windows.Forms.ComboBox();
-            this.Label4 = new System.Windows.Forms.Label();
+            this.lblValidAddresses = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblIO = new System.Windows.Forms.Label();
             this.tbUserAddress = new System.Windows.Forms.TextBox();
@@ -483,16 +483,17 @@
             this.cbModifier.TabIndex = 29;
             this.cbModifier.SelectedIndexChanged += new System.EventHandler(this.ComboBoxModifier_SelectedIndexChanged);
             // 
-            // Label4
+            // lblValidAddresses
             // 
-            this.Label4.AutoSize = true;
-            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.Label4.Location = new System.Drawing.Point(68, 142);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(355, 20);
-            this.Label4.TabIndex = 28;
-            this.Label4.Text = "Valid range: x00000 to x65534 (no offset applied)";
+            this.lblValidAddresses.AutoSize = true;
+            this.lblValidAddresses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValidAddresses.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblValidAddresses.Location = new System.Drawing.Point(68, 142);
+            this.lblValidAddresses.Name = "lblValidAddresses";
+            this.lblValidAddresses.Size = new System.Drawing.Size(355, 20);
+            this.lblValidAddresses.TabIndex = 28;
+            this.lblValidAddresses.Text = "Valid range: x00000 to x65535 (no offset applied)";
+            this.lblValidAddresses.MouseHover += new System.EventHandler(this.LabelValidAddresses_MouseHover);
             // 
             // lblAddress
             // 
@@ -594,7 +595,7 @@
             this.Controls.Add(this.cbStringLength);
             this.Controls.Add(this.lblModifier);
             this.Controls.Add(this.cbModifier);
-            this.Controls.Add(this.Label4);
+            this.Controls.Add(this.lblValidAddresses);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblIO);
             this.Controls.Add(this.tbUserAddress);
@@ -627,7 +628,7 @@
         private System.Windows.Forms.ComboBox cbStringLength;
         private System.Windows.Forms.Label lblModifier;
         private System.Windows.Forms.ComboBox cbModifier;
-        internal System.Windows.Forms.Label Label4;
+        internal System.Windows.Forms.Label lblValidAddresses;
         internal System.Windows.Forms.Label lblAddress;
         internal System.Windows.Forms.Label lblIO;
         private System.Windows.Forms.TextBox tbUserAddress;

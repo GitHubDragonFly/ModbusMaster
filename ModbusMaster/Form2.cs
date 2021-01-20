@@ -295,7 +295,7 @@ namespace ModbusMaster
 							tbResultingAddress.BackColor = Color.Red;
 					}
 					else
-						tbResultingAddress.BackColor = Color.LimeGreen;
+						CheckValue();
 				}
 			}
 		}
@@ -305,20 +305,8 @@ namespace ModbusMaster
 			if (!NoText)
 			{
 				tbResultingAddress.Text = cbIO.SelectedItem + tbUserAddress.Text.PadLeft(5, '0') + cbModifier.SelectedItem.ToString().Trim() + cbStringLength.SelectedItem + cbCharacter.SelectedItem.ToString().Trim();
-				if (cbCharacter.SelectedIndex > 0)
-				{
-					if (((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex + 1) < 65536) && (cbCharacter.SelectedIndex < cbStringLength.SelectedIndex + 2))
-						tbResultingAddress.BackColor = Color.LimeGreen;
-					else
-						tbResultingAddress.BackColor = Color.Red;
-				}
-				else
-				{
-					if ((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex + 1) < 65536)
-						tbResultingAddress.BackColor = Color.LimeGreen;
-					else
-						tbResultingAddress.BackColor = Color.Red;
-				}
+
+				CheckString();
 			}
 		}
 
@@ -327,7 +315,11 @@ namespace ModbusMaster
 			if (!NoText)
 			{
 				if (cbStringLength.Enabled)
+                {
 					tbResultingAddress.Text = cbIO.SelectedItem + tbUserAddress.Text.PadLeft(5, '0') + cbModifier.SelectedItem.ToString() + cbStringLength.SelectedItem + cbCharacter.SelectedItem.ToString().Trim();
+
+					CheckString();
+				}
 				else
 					tbResultingAddress.Text = cbIO.SelectedItem + tbUserAddress.Text.PadLeft(5, '0') + cbBit.SelectedItem.ToString().Trim() + cbModifier.SelectedItem.ToString().Trim();
 
@@ -341,8 +333,6 @@ namespace ModbusMaster
 					else
 						tbResultingAddress.BackColor = Color.Red;
 				}
-				else
-					tbResultingAddress.BackColor = Color.LimeGreen;
 			}
 		}
 
@@ -363,13 +353,36 @@ namespace ModbusMaster
 		{
 			if (int.TryParse(tbUserAddress.Text, out int address))
 			{
-				if (address < 0 || (cbModifier.SelectedIndex < 2 && address > 65535) || (cbModifier.SelectedIndex > 2 && cbModifier.SelectedIndex < 6 && address > 65534) || ((cbModifier.SelectedIndex == 6 || cbModifier.SelectedIndex == 7 || cbModifier.SelectedIndex == 8) && address > 65532) || ((cbModifier.SelectedIndex == 9 || cbModifier.SelectedIndex == 10) && address > 65528) || (cbStringLength.Enabled && (address + cbStringLength.SelectedIndex + 1) > 65535))
+				if (address < 0 || (cbModifier.SelectedIndex < 2 && address > 65535) ||
+					(cbModifier.SelectedIndex > 2 && cbModifier.SelectedIndex < 6 && address > 65534) ||
+					((cbModifier.SelectedIndex == 6 || cbModifier.SelectedIndex == 7 || cbModifier.SelectedIndex == 8) && address > 65532) ||
+					((cbModifier.SelectedIndex == 9 || cbModifier.SelectedIndex == 10) && address > 65528) ||
+					(cbStringLength.Enabled && ((address + cbStringLength.SelectedIndex + 1) > 65535 || cbCharacter.SelectedIndex > cbStringLength.SelectedIndex + 1)))
+
 					tbResultingAddress.BackColor = Color.Red;
 				else
 					tbResultingAddress.BackColor = Color.LimeGreen;
 			}
 			else
 				tbResultingAddress.BackColor = Color.Red;
+		}
+
+		private void CheckString()
+        {
+			if (cbCharacter.SelectedIndex > 0)
+			{
+				if (((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex + 1) < 65536) && (cbCharacter.SelectedIndex < cbStringLength.SelectedIndex + 2))
+					tbResultingAddress.BackColor = Color.LimeGreen;
+				else
+					tbResultingAddress.BackColor = Color.Red;
+			}
+			else
+			{
+				if ((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex) < 65536)
+					tbResultingAddress.BackColor = Color.LimeGreen;
+				else
+					tbResultingAddress.BackColor = Color.Red;
+			}
 		}
 
 		#endregion
@@ -389,6 +402,11 @@ namespace ModbusMaster
         private void LabelBit_MouseHover(object sender, System.EventArgs e)
 		{
 			AllToolTip.SetToolTip(lblBit, "A bit from the 16 / 32 / 64 / 128 bit number");
+		}
+
+		private void LabelValidAddresses_MouseHover(object sender, System.EventArgs e)
+		{
+			AllToolTip.SetToolTip(lblValidAddresses, "A single 32 / 64 / 128 bit address will span 2 / 4 / 8 consecutive registers.");
 		}
 
 		#endregion
