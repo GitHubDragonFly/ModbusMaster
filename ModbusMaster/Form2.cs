@@ -307,6 +307,7 @@ namespace ModbusMaster
 				tbResultingAddress.Text = cbIO.SelectedItem + tbUserAddress.Text.PadLeft(5, '0') + cbModifier.SelectedItem.ToString().Trim() + cbStringLength.SelectedItem + cbCharacter.SelectedItem.ToString().Trim();
 
 				CheckString();
+				CheckValue();
 			}
 		}
 
@@ -320,19 +321,21 @@ namespace ModbusMaster
 
 					CheckString();
 				}
-				else
+                else
+                {
 					tbResultingAddress.Text = cbIO.SelectedItem + tbUserAddress.Text.PadLeft(5, '0') + cbBit.SelectedItem.ToString().Trim() + cbModifier.SelectedItem.ToString().Trim();
 
-				CheckValue();
-
-				if (cbBit.SelectedIndex != 0)
-				{
-					var bitsNumber = Convert.ToInt32(cbBit.SelectedItem.ToString().Substring(1));
-					if ((bitsNumber > 15 && bitsNumber < 32 && cbModifier.SelectedIndex > 2) || (bitsNumber > 31 && bitsNumber < 64 && cbModifier.SelectedIndex > 5) || (bitsNumber > 63 && cbModifier.SelectedIndex > 8) || (bitsNumber < 16 && (cbModifier.SelectedIndex != 2)))
-						tbResultingAddress.BackColor = Color.LimeGreen;
-					else
-						tbResultingAddress.BackColor = Color.Red;
+					if (cbBit.SelectedIndex != 0)
+					{
+						var bitsNumber = Convert.ToInt32(cbBit.SelectedItem.ToString().Substring(1));
+						if ((bitsNumber > 15 && bitsNumber < 32 && cbModifier.SelectedIndex > 2) || (bitsNumber > 31 && bitsNumber < 64 && cbModifier.SelectedIndex > 5) || (bitsNumber > 63 && cbModifier.SelectedIndex > 8) || (bitsNumber < 16 && (cbModifier.SelectedIndex != 2)))
+							tbResultingAddress.BackColor = Color.LimeGreen;
+						else
+							tbResultingAddress.BackColor = Color.Red;
+					}
 				}
+
+				CheckValue();
 			}
 		}
 
@@ -353,10 +356,10 @@ namespace ModbusMaster
 		{
 			if (int.TryParse(tbUserAddress.Text, out int address))
 			{
-				if (address < 0 || (cbModifier.SelectedIndex < 2 && address > 65535) ||
-					(cbModifier.SelectedIndex > 2 && cbModifier.SelectedIndex < 6 && address > 65534) ||
-					((cbModifier.SelectedIndex == 6 || cbModifier.SelectedIndex == 7 || cbModifier.SelectedIndex == 8) && address > 65532) ||
-					((cbModifier.SelectedIndex == 9 || cbModifier.SelectedIndex == 10) && address > 65528) ||
+				if (address < 0 || (cbModifier.SelectedIndex < 2 && address > 65534) ||
+					(cbModifier.SelectedIndex > 2 && cbModifier.SelectedIndex < 6 && address > 65533) ||
+					((cbModifier.SelectedIndex == 6 || cbModifier.SelectedIndex == 7 || cbModifier.SelectedIndex == 8) && address > 65531) ||
+					((cbModifier.SelectedIndex == 9 || cbModifier.SelectedIndex == 10) && address > 65527) ||
 					(cbStringLength.Enabled && ((address + cbStringLength.SelectedIndex + 1) > 65535 || cbCharacter.SelectedIndex > cbStringLength.SelectedIndex + 1)))
 
 					tbResultingAddress.BackColor = Color.Red;
@@ -368,7 +371,7 @@ namespace ModbusMaster
 		}
 
 		private void CheckString()
-        {
+		{
 			if (cbCharacter.SelectedIndex > 0)
 			{
 				if (((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex + 1) < 65536) && (cbCharacter.SelectedIndex < cbStringLength.SelectedIndex + 2))
@@ -378,7 +381,7 @@ namespace ModbusMaster
 			}
 			else
 			{
-				if ((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex) < 65536)
+				if ((Convert.ToInt32(tbUserAddress.Text) + cbStringLength.SelectedIndex + 1) < 65536)
 					tbResultingAddress.BackColor = Color.LimeGreen;
 				else
 					tbResultingAddress.BackColor = Color.Red;

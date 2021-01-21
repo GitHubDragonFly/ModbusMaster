@@ -1006,7 +1006,7 @@ namespace ModbusMaster
 
 			if (startAddress.StartsWith("0") || startAddress.StartsWith("1")) //Applicable operations: "0" = Read/Write, "1" = Read only
 			{
-				if ((Convert.ToInt32(startAddress.Substring(1)) + numOfPoints) > 65536)
+				if ((Convert.ToInt32(startAddress.Substring(1)) + numOfPoints) > 65535)
 				{
 					AddressList[sndrIndex].ValuesToWrite.Text = "Limits of the array exceeded";
 					return;
@@ -6762,7 +6762,7 @@ namespace ModbusMaster
 
 			if (tempAddress.StartsWith("0") || tempAddress.StartsWith("1"))
 			{
-				if ((numOfPoints > 2000) || (registerAddress + numOfPoints > 65536))
+				if ((numOfPoints > 2000) || (registerAddress + numOfPoints > 65535))
 				{
 					AddressList[indx].ValuesToWrite.Text = "Limits exceeded";
 					//Set the corresponding status label back color to Red = Failed
@@ -6772,7 +6772,7 @@ namespace ModbusMaster
 			}
 			else if (tempAddress.IndexOfAny(new char[] { 'O' }) != -1)
             {
-				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 128) || (BitNumber > -1 && !chbBitReading.Checked && (8 * numOfPoints > 125 || registerAddress + 8 * numOfPoints > 65536)) || (BitNumber == -1 && (8 * numOfPoints > 125 || registerAddress + 8 * numOfPoints > 65536)))
+				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 128) || (BitNumber > -1 && !chbBitReading.Checked && (8 * numOfPoints > 125 || registerAddress + 8 * numOfPoints > 65535)) || (BitNumber == -1 && (8 * numOfPoints > 125 || registerAddress + 8 * numOfPoints > 65535)))
 				{
 					AddressList[indx].ValuesToWrite.Text = "Limits exceeded";
 					//Set the corresponding status label back color to Red = Failed
@@ -6782,7 +6782,7 @@ namespace ModbusMaster
 			}
 			else if (tempAddress.IndexOfAny(new char[] { 'Q' }) != -1)
 			{
-				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 64) || (BitNumber > -1 && !chbBitReading.Checked && (4 * numOfPoints > 125 || registerAddress + 4 * numOfPoints > 65536)) || (BitNumber == -1 && (4 * numOfPoints > 125 || registerAddress + 4 * numOfPoints > 65536)))
+				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 64) || (BitNumber > -1 && !chbBitReading.Checked && (4 * numOfPoints > 125 || registerAddress + 4 * numOfPoints > 65535)) || (BitNumber == -1 && (4 * numOfPoints > 125 || registerAddress + 4 * numOfPoints > 65535)))
 				{
 					AddressList[indx].ValuesToWrite.Text = "Limits exceeded";
 					//Set the corresponding status label back color to Red = Failed
@@ -6792,7 +6792,7 @@ namespace ModbusMaster
 			}
 			else if (tempAddress.IndexOfAny(new char[] { 'F' }) != -1 || tempAddress.IndexOfAny(new char[] { 'L' }) != -1)
 			{
-				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 32) || (BitNumber > -1 && !chbBitReading.Checked && (2 * numOfPoints > 125 || registerAddress + 2 * numOfPoints > 65536)) || (BitNumber == -1 && (2 * numOfPoints > 125 || registerAddress + 2 * numOfPoints > 65536)))
+				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 32) || (BitNumber > -1 && !chbBitReading.Checked && (2 * numOfPoints > 125 || registerAddress + 2 * numOfPoints > 65535)) || (BitNumber == -1 && (2 * numOfPoints > 125 || registerAddress + 2 * numOfPoints > 65535)))
 				{
 					AddressList[indx].ValuesToWrite.Text = "Limits exceeded";
 					//Set the corresponding status label back color to Red = Failed
@@ -6809,7 +6809,7 @@ namespace ModbusMaster
 				else
 					numRegisters = Convert.ToInt32(tempAddress.Substring(tempAddress.IndexOf("S") + 1));
 
-				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > numRegisters) || (BitNumber > -1 && !chbBitReading.Checked && (numOfPoints * numRegisters > 125 || registerAddress + numOfPoints * numRegisters > 65536)) || (BitNumber == -1 && (numOfPoints * numRegisters > 125 || registerAddress + numOfPoints * numRegisters > 65536)))
+				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > numRegisters) || (BitNumber > -1 && !chbBitReading.Checked && (numOfPoints * numRegisters > 125 || registerAddress + numOfPoints * numRegisters > 65535)) || (BitNumber == -1 && (numOfPoints * numRegisters > 125 || registerAddress + numOfPoints * numRegisters > 65535)))
 				{
 					AddressList[indx].ValuesToWrite.Text = "Limits exceeded";
 					//Set the corresponding status label back color to Red = Failed
@@ -6819,7 +6819,7 @@ namespace ModbusMaster
 			}
 			else
 			{
-				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 16) || (BitNumber > -1 && !chbBitReading.Checked && (numOfPoints > 125 || registerAddress + numOfPoints > 65536)) || (BitNumber == -1 && (numOfPoints > 125 || registerAddress + numOfPoints > 65536)))
+				if ((BitNumber > -1 && chbBitReading.Checked && BitNumber + numOfPoints > 16) || (BitNumber > -1 && !chbBitReading.Checked && (numOfPoints > 125 || registerAddress + numOfPoints > 65535)) || (BitNumber == -1 && (numOfPoints > 125 || registerAddress + numOfPoints > 65535)))
 				{
 					AddressList[indx].ValuesToWrite.Text = "Limits exceeded";
 					//Set the corresponding status label back color to Red = Failed

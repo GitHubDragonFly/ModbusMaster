@@ -492,7 +492,7 @@
             this.lblValidAddresses.Name = "lblValidAddresses";
             this.lblValidAddresses.Size = new System.Drawing.Size(355, 20);
             this.lblValidAddresses.TabIndex = 28;
-            this.lblValidAddresses.Text = "Valid range: x00000 to x65535 (no offset applied)";
+            this.lblValidAddresses.Text = "Valid range: x00000 to x65534 (no offset applied)";
             this.lblValidAddresses.MouseHover += new System.EventHandler(this.LabelValidAddresses_MouseHover);
             // 
             // lblAddress
