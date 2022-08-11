@@ -6,6 +6,10 @@ These are included as a resource for Windows version but are separate for Mono v
 
 Intended to be used as a quick testing tool. Can be tested with its counterpart [ModbusSlaveSimulation](https://github.com/GitHubDragonFly/ModbusSlaveSimulation).
 
+# Screenshot
+
+![Start Page](screenshots/Modbus%20Master.png?raw=true)
+
 # Functionality
 - Read the comments inside the form and also hover the mouse over the labels for hints.
 - No Offset Addressing: Coils = 0xxxxx, Discrete Inputs = 1xxxxx, Input Registers = 3xxxxx, Holding Registers = 4xxxxx (where xxxxx goes from 0 up to 65534).
