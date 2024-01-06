@@ -15,19 +15,19 @@ Intended to be used as a quick testing tool. Can be tested with its counterpart 
 
 # Functionality
 - Read the comments inside the form and also hover the mouse over the labels for hints.
-- No Offset Addressing (where xxxxx goes from 0 up to 65534):
+- No Offset Addressing (where xxxxx goes from 00000 up to 65534):
   - Coils = 0xxxxx
   - Discrete Inputs = 1xxxxx
   - Input Registers = 3xxxxx
   - Holding Registers = 4xxxxx
-- Apart from `Int16`, which is register adress only (without modifier), this app also supports `U`, `F`, `L`, `UL` and `S` modifiers ( `UInt16`, `Float32`, `Int32`, `UInt32`, `String` )
+- Apart from `Int16`, which is register adress only without modifier, this app also supports `U`, `F`, `L`, `UL` and `S` modifiers ( which are used for `UInt16`, `Float32`, `Int32`, `UInt32`, `String` )
 - A support for 64-bit values was added - Float64, signed and unsigned Integer64. Use `FQ`, `LQ` and `UQ` modifiers (where `Q` stands for Quad Word).
 - An experimental support for 128-bit values was added - signed and unsigned Integer128. Use `LO` and `UO` modifiers (where `O` stands for Octa Word).
 - It also supports bit/character Reading/Writing:
   - select either consecutive bits/characters within a single element or the exact individual bit/character from each of the multiple elements.
   - either a single value or the exact number of comma separated values will be required for writing if Points number > 1.
 - For RTU based protocols, on a single PC, this app can use the help of the [com0com](https://pete.akeo.ie/search/label/com0com) Windows program to provide virtual serial port pairs.
-- Additional TextBox allows manual input of the serial port (intended for Linux so `tty0tty` virtual ports could be accessed). This box was removed in Mac Mono version.
+- Additional TextBox allows manual input of the serial port (intended for Linux so [tty0tty](https://github.com/freemed/tty0tty) virtual port pairs, like `/dev/tnt0` <=> `/dev/tnt1`, could be accessed). This box was removed in Mac Mono version.
 - The library supports `Masked Bit Write`, function code 22 (0x16H), but the app also includes the built-in code for slave devices that don't support `FC22` (this entails `read-modify-write` process which can take a little time and could overwrite values that changed during its running).
 - IMPORTANT: Exercise caution when attempting to write any value to the PLC.
 
@@ -46,7 +46,7 @@ All it takes is to:
 - Download and extract the zip file of this project and locate Mono archive in the "Mono" folder.
 - Extract 4 files and potentially rename the newly created folder and/or exe file to something shorter if you wish (just to make terminal navigation quicker).
 - Open the terminal, navigate to the folder and type: sudo mono ModbusMaster.exe (on Mac you might need to switch to superuser "su" account)
-- For testing RTU protocols, on Linux you can possibly install and use [tty0tty](https://github.com/freemed/tty0tty) virtual ports while on Mac the later OS X versions seem to have pseudo terminals - pairs of devices such as /dev/ptyp3 and /dev/ttyp3.
+- For testing RTU protocols, on Linux you can possibly install and use [tty0tty](https://github.com/freemed/tty0tty) virtual port pairs while on Mac the later OS X versions seem to have pseudo terminals - pairs of devices such as `/dev/ptyp3` <=> `/dev/ttyp3`.
 
 Note for Mac users: this was tested on an old iMac G5 PowerPC computer with Mono v2.10.2. Some odd behaviour was present in a sense that the app was loosing focus thus disrupting TCP communication in Auto Read mode. There is a text box with red X that you can click to try to maintain focus (if you do something else afterwards then click it again). Since I cannot test it in any other way then it is left for you to experiment.
 
