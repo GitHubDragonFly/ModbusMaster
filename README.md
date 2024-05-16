@@ -9,6 +9,8 @@ These are included as a resource for Windows version but are separate for Mono v
 
 Intended to be used as a quick testing tool. Can be tested with its counterpart [ModbusSlaveSimulation](https://github.com/GitHubDragonFly/ModbusSlaveSimulation).
 
+An easy alternative to use instead would be the [AdvancedHMI](https://www.advancedhmi.com/) software since it is highly functional and free.
+
 # Screenshot
 
 ![Start Page](screenshots/Modbus%20Master.png?raw=true)
