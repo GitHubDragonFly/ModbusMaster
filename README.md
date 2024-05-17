@@ -44,10 +44,10 @@ All it takes is to:
   - Debug/Start Debugging (or press F5) to run the app.
 - Locate created EXE file in the /bin/Debug folder and copy it over to your preferred folder or Desktop.
 ## -> For Mono
-- Make sure that Mono is installed on your computer, both mono-complete and mono-vbnc for Linux while for Mac you might need to experiment (maybe mono and mono-basic).
-- Download and extract the zip file of this project and locate Mono archive in the "Mono" folder.
-- Extract 4 files and potentially rename the newly created folder and/or exe file to something shorter if you wish (just to make terminal navigation quicker).
-- Open the terminal, navigate to the folder and type: sudo mono ModbusMaster.exe (on Mac you might need to switch to superuser "su" account)
+- Make sure that Mono is installed on your computer, both `mono-complete` and `mono-vbnc` for Linux while for Mac you might need to experiment (maybe `mono` and `mono-basic`).
+- Download and extract the zip file of this project and locate the Mono zip archive in the `Mono` folder.
+- Extract 4 files and potentially rename the newly created folder and/or exe file to something shorter if you wish, just to make terminal navigation quicker.
+- Open the terminal, navigate to the folder and type: `sudo mono ModbusMaster.exe` (on Mac you might need to switch to superuser "su" account)
 - For testing RTU protocols, on Linux you can possibly install and use [tty0tty](https://github.com/freemed/tty0tty) virtual port pairs while on Mac the later OS X versions seem to have pseudo terminals - pairs of devices such as `/dev/ptyp3` <=> `/dev/ttyp3`.
 
 Note for Mac users: this was tested on an old iMac G5 PowerPC computer with Mono v2.10.2. Some odd behaviour was present in a sense that the app was loosing focus thus disrupting TCP communication in Auto Read mode. There is a text box with red X that you can click to try to maintain focus (if you do something else afterwards then click it again). Since I cannot test it in any other way then it is left for you to experiment.
