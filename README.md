@@ -1,8 +1,9 @@
 # ModbusMaster
 Standalone Windows app supporting Modbus `RTU` , `TCP` , `UDP` , `RTUoverTCP` , `RTUoverUDP` , `ASCIIoverRTU` , `ASCIIoverTCP` and `ASCIIoverUDP` protocols. Also included are its Mono versions for Linux and Mac OS X (these are VB Net versions so for Linux you will have to install `mono-complete` and `mono-vbnc` packages while Mac might be different depending on the OS X version).
 
-It is designed to allow running multiple instances of the app at the same time, just use a different port, example:
-- one instance on IP 127.0.0.1 TCP Port 501 and another instance on IP 127.0.0.1 TCP Port 502
+It is designed to allow running multiple instances of the app at the same time, for example:
+- use the same protocol for each instance but with different port numbers -> IP 127.0.0.1 TCP Port 501 and IP 127.0.0.1 TCP Port 502
+- or use a mix of different protocols with help of other tools (like com0com for RTU protocol)
 
 Based on modified [nModbus](https://code.google.com/p/nmodbus/) .NET 3.5 libraries, Copyright (c) 2006 Scott Alexander.
 These are included as a resource for Windows version but are separate for Mono version.
@@ -33,8 +34,8 @@ An easy alternative to use instead would be the [AdvancedHMI](https://www.advanc
 - The library supports `Masked Bit Write`, function code 22 (0x16H), but the app also includes the built-in code for slave devices that don't support `FC22` (this entails `read-modify-write` process which can take a little time and could overwrite values that changed during its running).
 - IMPORTANT: Exercise caution when attempting to write any value to the PLC.
 
-# Build
-All it takes is to:
+# Usage
+
 ## -> For Windows
 - Either use Windows executable files from the `exe` folder or follow the instructions below to build it yourself.
 - Download and install Visual Studio community edition (ideally 2019).
@@ -43,6 +44,7 @@ All it takes is to:
   - Build/Build Solution (or press Ctrl-Shift-B).
   - Debug/Start Debugging (or press F5) to run the app.
 - Locate created EXE file in the /bin/Debug folder and copy it over to your preferred folder or Desktop.
+
 ## -> For Mono
 - Make sure that Mono is installed on your computer, both `mono-complete` and `mono-vbnc` for Linux while for Mac you might need to experiment (maybe `mono` and `mono-basic`).
 - Download and extract the zip file of this project and locate the Mono zip archive in the `Mono` folder.
