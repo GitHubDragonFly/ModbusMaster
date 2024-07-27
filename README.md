@@ -3,7 +3,7 @@ Standalone Windows app supporting Modbus `RTU` , `TCP` , `UDP` , `RTUoverTCP` , 
 
 Also included are its Mono versions for Linux and Mac OS X, these are VB Net versions so:
 - For Linux you will have to install `mono-complete` and `mono-vbnc` packages
-- Mac might be different depending on the OS X version. maybe install `mono` and `mono-basic` packages
+- Mac might be different depending on the OS X version, maybe install `mono` and `mono-basic` packages
 
 The app is designed to allow running multiple instances of the app at the same time, for example:
 - Use the same protocol for each instance but with different port numbers, similar to:
