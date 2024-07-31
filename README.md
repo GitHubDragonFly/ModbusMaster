@@ -14,7 +14,7 @@ This is all based on modified [nModbus](https://code.google.com/p/nmodbus/) .NET
 - These are included as a resource for Windows version but are separate for Mono version
 
 Intended to be used as a quick testing tool:
-- Can be tested with its counterpart [ModbusSlaveSimulation](https://github.com/GitHubDragonFly/ModbusSlaveSimulation).
+- Can be tested with its counterpart [ModbusSlaveSimulation](https://github.com/GitHubDragonFly/ModbusSlaveSimulation) (check the video further below)
 
 An easy alternative to use instead would be the [AdvancedHMI](https://www.advancedhmi.com/) software since it is highly functional and free.
 
@@ -70,6 +70,10 @@ IMPORTANT: Exercise caution when attempting to write any value to the PLC.
 - For testing RTU protocols, on Linux you can possibly install and use [tty0tty](https://github.com/freemed/tty0tty) virtual port pairs while on Mac the later OS X versions seem to have pseudo terminals - pairs of devices such as `/dev/ptyp3` <=> `/dev/ttyp3`
 
 Note for Mac users: this was tested on an old iMac G5 PowerPC computer with Mono v2.10.2. Some odd behaviour was present in a sense that the app was loosing focus thus disrupting TCP communication in Auto Read mode. There is a text box with red X that you can click to try to maintain focus (if you do something else afterwards then click it again). Since I cannot test it in any other way then it is left for you to experiment.
+
+# Video
+
+https://github.com/user-attachments/assets/dff08e3f-8fd6-417b-b4b9-fcf1b72759ad
 
 # License
 Licensed under MIT license - see the README.txt file inside the Resources folder.
