@@ -15,7 +15,8 @@ The app is designed to allow running multiple instances of the app at the same t
   - IP 127.0.0.1 TCP Port 501 and IP 127.0.0.1 TCP Port 502
 - Use a mix of different protocols with help of other tools (like [com0com](https://pete.akeo.ie/search/label/com0com) for RTU protocol on Windows)
 
-This is all based on modified [nModbus](https://code.google.com/p/nmodbus/) .NET 3.5 libraries, Copyright (c) 2006 Scott Alexander:
+This is all based on modified [nModbus](https://code.google.com/p/nmodbus/) .NET 3.5 libraries:
+- MIT Licensed Copyright (c) 2006 Scott Alexander:
 - These are included as a resource for Windows version but are separate for Mono version
 
 Intended to be used as a quick testing tool:
@@ -81,7 +82,7 @@ Note for Mac users: this was tested on an old iMac G5 PowerPC computer with Mono
 https://github.com/user-attachments/assets/dff08e3f-8fd6-417b-b4b9-fcf1b72759ad
 
 # License
-Licensed under MIT license - see the README.txt file inside the Resources folder.
+Licensed under MIT license - see the NModbus MIT License within the README.txt file inside the Resources folder.
 
 # Trademarks
 Any and all trademarks, either directly or indirectly mentioned in this project, belong to their respective owners.
